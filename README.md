@@ -15,20 +15,16 @@ yarn serve
 yarn build
 ```
 
-### Run your unit tests
+### Create clasp project
 ```
-yarn test:unit
+clasp login
+clasp create --type slides --rootDir dist
+
+Move appsscript.json from /dist to /gas, it's moving automatically to dist when build.
 ```
 
-### Run your end-to-end tests
+### Push dist files to GAS
 ```
-yarn test:e2e
-```
-
-### Lints and fixes files
-```
-yarn lint
+clasp push
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

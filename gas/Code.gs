@@ -11,6 +11,6 @@ function onOpen() {
 function startApp() {
   var htmlOutput = HtmlService.createTemplateFromFile('index.html').evaluate();
 
-  htmlOutput.setTitle('スマートワークシート');//タイトルはHTMLに記載できない。
+  htmlOutput.setTitle('Vue App');//タイトルはHTMLに記載できない。
   SlidesApp.getUi().showSidebar(htmlOutput);
 }
