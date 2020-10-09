@@ -1,10 +1,6 @@
 <template>
-  <div>
-    <ul>
-      <li><router-link to="/home">/home</router-link></li>
-      <li><router-link to="/about">/about</router-link></li>
-    </ul>
-    <router-view />
+  <div id="app">
+    <div>Hello HOME edited</div>
   </div>
 </template>
 
@@ -14,7 +10,7 @@ import { Component, Vue } from "vue-property-decorator";
 @Component({
   components: {}
 })
-export default class App extends Vue {}
+export default class Home extends Vue {}
 </script>
 
 <style>

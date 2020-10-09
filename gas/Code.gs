@@ -4,12 +4,19 @@ function onOpen() {
 
   const menu = ui.createMenu('vue app');
 
-  menu.addItem('Start App', 'startApp')
+  menu.addItem('Start Home', 'startHome').addItem('Start About', 'startAbout')
   .addToUi();
 }
 
-function startApp() {
-  var htmlOutput = HtmlService.createTemplateFromFile('index.html').evaluate();
+function startHome() {
+  var htmlOutput = HtmlService.createTemplateFromFile('home.html').evaluate();
+
+  htmlOutput.setTitle('Vue App');//タイトルはHTMLに記載できない。
+  SlidesApp.getUi().showSidebar(htmlOutput);
+}
+
+function startAbout() {
+  var htmlOutput = HtmlService.createTemplateFromFile('about.html').evaluate();
 
   htmlOutput.setTitle('Vue App');//タイトルはHTMLに記載できない。
   SlidesApp.getUi().showSidebar(htmlOutput);
