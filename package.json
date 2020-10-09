@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "webpack-dev-server --config ./webpack.dev.config.js",
-    "build": "webpack --config ./webpack.dev.config.js",
+    "build": "webpack --config ./webpack.config.js",
     "build:dll": "webpack --config ./webpack.dll.config.js",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",

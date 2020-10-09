@@ -1,29 +1,18 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path')
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const webpack = require('webpack')
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const TersetJSPlugin = require('terser-webpack-plugin')
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const webpack = require('webpack')
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const TersetJSPlugin = require('terser-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname,'src/main.js'),
+    app: path.resolve(__dirname,'src/main.ts'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -38,6 +27,7 @@ module.exports = {
     ]
   },
   resolve: {
+    extensions: ['.js', '.ts', '.vue', '.json'],
     alias: {
       '@': path.resolve(__dirname, 'src')
     }
@@ -52,6 +42,15 @@ module.exports = {
         test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.ts$/,
+        use: [{
+          loader: 'ts-loader',
+          options: {
+            appendTsSuffixTo: [/\.vue$/]
+          }
+        }]
       },
       {
         test: /\.css|postcss$/,
@@ -69,15 +68,16 @@ module.exports = {
         ]
       },
       {
+        test: /\.pug$/,
+        loader: 'pug-plain-loader'
+      },
+      {
         test: /\.jpg|png|gif|woff|eot|ttf|svg|mp4|webm$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: false,
-            name: '[hash].[ext]',
-            outputPath: 'assets'
-          }
-        }
+        use: [
+          {
+            loader: 'url-loader',
+          },
+        ],
       },
     ]
   },

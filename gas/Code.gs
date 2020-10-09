@@ -2,7 +2,7 @@ function onOpen() {
   var ui = SlidesApp.getUi();
 
 
-  const menu = ui.createMenu('vue app2');
+  const menu = ui.createMenu('vue app');
 
   menu.addItem('Start App', 'startApp')
   .addToUi();
