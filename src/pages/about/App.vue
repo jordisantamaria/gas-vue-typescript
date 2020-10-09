@@ -1,7 +1,6 @@
-<template>
-  <div id="app">
-    <div>Hello About</div>
-  </div>
+<template lang="pug">
+  div(id="app")
+    div Hello About
 </template>
 
 <script lang="ts">
