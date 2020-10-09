@@ -2,9 +2,9 @@ function onOpen() {
   var ui = SlidesApp.getUi();
 
 
-  const menu = ui.createMenu('vue app');
+  const menu = ui.createMenu('vue app2');
 
-  menu.addItem('ホームメニュー', 'startApp')
+  menu.addItem('Start App', 'startApp')
   .addToUi();
 }
 
