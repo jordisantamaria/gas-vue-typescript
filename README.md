@@ -29,7 +29,7 @@ Move appsscript.json from /dist to /gas, it's moving automatically to dist when 
 clasp push
 ```
 
-### Vue code structure
+## Vue code structure
 
 - 1 entry point for development (src/main.ts)
 
