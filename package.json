@@ -2,13 +2,18 @@
   "name": "gas-vue-typescript",
   "version": "0.1.0",
   "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged --pattern '**/*.*(js|ts|vue)'"
+    }
+  },
   "scripts": {
-    "serve": "webpack-dev-server --config ./webpack.dev.config.js",
+    "serve": "vue-cli-service serve",
     "build": "webpack --config ./webpack.config.js",
     "build:dll": "webpack --config ./webpack.dll.config.js",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "prettier": "pretty-quick --pattern '**/*.*(js|ts|vue)'"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -16,6 +21,8 @@
     "vue-router": "^3.4.6"
   },
   "devDependencies": {
+    "@types/google.picker": "^0.0.34",
+    "@types/google.script.client-side": "^0.1.0",
     "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
@@ -41,10 +48,12 @@
     "html-loader": "^1.3.1",
     "html-webpack-inline-source-plugin": "1.0.0-beta.2",
     "html-webpack-plugin": "^4.5.0",
+    "husky": "^4.3.5",
     "mini-css-extract-plugin": "^0.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "postcss-loader": "^4.0.3",
-    "prettier": "^1.19.1",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.0.0",
     "style-loader": "^1.3.0",
